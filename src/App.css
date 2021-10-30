@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #0065e4;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: whitesmoke;
+}
+
+.navbar-brand {
+  color: aliceblue;
+}
+
+.search-btn {
+  background-color: aliceblue;
+  color: #0065e4;
+}

@@ -6,7 +6,7 @@ const FrontEndLayout = () => {
   return (
     <div>
       <Header />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
