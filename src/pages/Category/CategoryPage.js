@@ -1,32 +1,19 @@
 import React from 'react';
+import dellxps from '../../assets/images/category/dellxps.jpg';
+
+import { Card, Button } from 'react-bootstrap';
 
 const CategoryPage = () => {
   return (
-    <div>
-      <div class="list-group">
-        <button
-          type="button"
-          class="list-group-item list-group-item-action active"
-        >
-          Cras justo odio
-        </button>
-        <button type="button" class="list-group-item list-group-item-action">
-          Dapibus ac facilisis in
-        </button>
-        <button type="button" class="list-group-item list-group-item-action">
-          Morbi leo risus
-        </button>
-        <button type="button" class="list-group-item list-group-item-action">
-          Porta ac consectetur ac
-        </button>
-        <button
-          type="button"
-          class="list-group-item list-group-item-action"
-          disabled
-        >
-          Vestibulum at eros
-        </button>
-      </div>
+    <div class="m-4">
+      <a href="">
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={dellxps} />
+          <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+          </Card.Body>
+        </Card>
+      </a>
     </div>
   );
 };

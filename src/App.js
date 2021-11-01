@@ -5,18 +5,19 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import FrontEndLayout from './pages/layout/frontEndLayout';
+import ProductPage from './pages/Product/ProductPage';
 import CategoryPage from './pages/Category/CategoryPage';
 
 function App() {
   return (
     <div>
-      <FrontEndLayout />
       <Router>
+        <FrontEndLayout />
         <Route path="/categories">
           <CategoryPage />
         </Route>
         <Route path="/products">
-          <CategoryPage />
+          <ProductPage />
         </Route>
         <Route path="/cart">
           <CategoryPage />

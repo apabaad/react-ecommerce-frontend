@@ -14,3 +14,16 @@
   background-color: aliceblue;
   color: #0065e4;
 }
+
+.dropdown-menu {
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#searchbar {
+  width: 300px;
+}
