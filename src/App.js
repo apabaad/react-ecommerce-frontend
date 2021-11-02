@@ -4,15 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import FrontEndLayout from './pages/layout/frontEndLayout';
 import ProductPage from './pages/Product/ProductPage';
 import CategoryPage from './pages/Category/CategoryPage';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
     <div>
       <Router>
-        <FrontEndLayout />
+        {/* <Route path="">
+          <HomePage />
+        </Route> */}
         <Route path="/categories">
           <CategoryPage />
         </Route>

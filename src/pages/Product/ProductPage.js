@@ -1,10 +1,11 @@
 import React from 'react';
+import FrontEndLayout from '../layout/frontEndLayout';
 
 const ProductPage = () => {
   return (
-    <div>
+    <FrontEndLayout>
       <h2> welcome to product page </h2>
-    </div>
+    </FrontEndLayout>
   );
 };
 
