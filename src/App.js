@@ -12,9 +12,9 @@ function App() {
   return (
     <div>
       <Router>
-        {/* <Route path="">
+        <Route path="/" exact>
           <HomePage />
-        </Route> */}
+        </Route>
         <Route path="/categories">
           <CategoryPage />
         </Route>

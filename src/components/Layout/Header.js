@@ -23,7 +23,7 @@ const Header = () => {
   }, [dispatch]);
 
   // select just the parent cats
-  const parentCategories = catList.filter((item, i) => !item.parentCat);
+  const parentCategories = catList.filter((item) => !item.parentCat);
 
   return (
     <Navbar expand="lg">
@@ -45,7 +45,10 @@ const Header = () => {
         <Nav className="me-auto my-2 my-lg-1" style={{ maxHeight: '100px' }}>
           {parentCategories.map((item, i) => {
             return (
-              <Link to={`/categories/${item.name}`} className="nav-link">
+              <Link
+                to={`/categories?category=${item.slug}`}
+                className="nav-link"
+              >
                 {item.name}
               </Link>
             );
