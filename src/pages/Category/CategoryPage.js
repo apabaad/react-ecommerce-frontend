@@ -13,22 +13,27 @@ const CategoryPage = ({ props }) => {
   const { isPending, catList } = useSelector((state) => state.category);
   const { productList } = useSelector((state) => state.product);
 
-  useEffect(() => {
-    dispatch(getProductAction());
-  }, [dispatch]);
-
   // get query string
   // const { search } = useLocation(); //get url after '?'
   // const { category } = queryString.parse(search); //get value i.e slug of ?category from url
 
   // get slug
   const { slug } = useParams();
-  console.log(slug);
 
   //  get id of category based on slug
   const categoryClicked = catList.filter((item) => item.slug === slug); //getting the category coming from the slug
-  const id = categoryClicked.map((item, i) => item._id); //getting id of category
-  console.log(id);
+  const _id = categoryClicked[0]?._id; //getting array containing id of category
+
+  console.log(_id);
+  const filteredProduct = productList.filter((item) =>
+    item.categories.includes(_id)
+  );
+
+  console.log(filteredProduct, 'frome here');
+
+  useEffect(() => {
+    dispatch(getProductAction());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getCategoriesAction());
@@ -37,14 +42,14 @@ const CategoryPage = ({ props }) => {
   return (
     <FrontEndLayout>
       <div className="d-flex row-wrap">
-        {catList.map((item, i) => {
+        {filteredProduct.map((item, i) => {
           return (
             <div className=" m-2">
               <a href="">
                 <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src={dellxps} />
+                  <Card.Img variant="top" src={item.images[0]} />
                   <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
+                    <Card.Title>{item.title}</Card.Title>
                   </Card.Body>
                 </Card>
               </a>
