@@ -12,18 +12,20 @@ function App() {
   return (
     <div>
       <Router>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
-        <Route path="/categories">
-          <CategoryPage />
-        </Route>
-        <Route path="/products">
-          <ProductPage />
-        </Route>
-        <Route path="/cart">
-          <CategoryPage />
-        </Route>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/category/:slug">
+            <CategoryPage />
+          </Route>
+          <Route path="/products">
+            <ProductPage />
+          </Route>
+          <Route path="/cart">
+            <CategoryPage />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

@@ -16,7 +16,6 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const { isPending, catList } = useSelector((state) => state.category);
-  console.log(catList);
 
   useEffect(() => {
     dispatch(getCategoriesAction());
@@ -45,10 +44,7 @@ const Header = () => {
         <Nav className="me-auto my-2 my-lg-1" style={{ maxHeight: '100px' }}>
           {parentCategories.map((item, i) => {
             return (
-              <Link
-                to={`/categories?category=${item.slug}`}
-                className="nav-link"
-              >
+              <Link to={`/category/${item.slug}`} className="nav-link">
                 {item.name}
               </Link>
             );

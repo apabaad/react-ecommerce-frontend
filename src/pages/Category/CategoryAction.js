@@ -1,5 +1,5 @@
 import { fetchCategory } from '../../apis/categoryAPIs';
-import { fetchCategoriesSuccess, reqFail } from './CategorySlice';
+import { fetchCategoriesSuccess, resFail } from './CategorySlice';
 
 export const getCategoriesAction = () => async (dispatch) => {
   const result = await fetchCategory();
@@ -7,5 +7,5 @@ export const getCategoriesAction = () => async (dispatch) => {
   if (result?.status === 'success') {
     return dispatch(fetchCategoriesSuccess(result));
   }
-  dispatch(reqFail(result));
+  dispatch(resFail(result));
 };
