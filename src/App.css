@@ -28,6 +28,9 @@ a {
   width: 300px;
 }
 
+.main {
+  margin-bottom: 150px;
+}
 .productRow {
   display: flex;
   flex-direction: row;
@@ -65,13 +68,15 @@ a {
   width: 650px;
   height: 600px;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .addToCartButton {
   padding: 10px;
   background-color: #008a00;
   color: whitesmoke;
   border-radius: 4px;
-  margin: 10px;
+  margin-right: 10px;
   width: 200px;
   height: 50px;
   font-size: larger;
@@ -90,4 +95,32 @@ a {
 
 .productDescription {
   margin: 20px;
+}
+
+.footer {
+  /* height: 80px; */
+  background-color: #0365e4;
+  color: whitesmoke;
+  bottom: 0;
+  /* position: fixed; */
+  width: 100vw;
+}
+
+.layout-main {
+  min-height: 80vh;
+}
+
+#setProductQuantity {
+  width: 60px;
+  height: 35px;
+}
+
+.product-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.selectQuantity {
+  display: flex;
+  flex-direction: row;
 }

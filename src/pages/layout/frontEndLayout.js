@@ -7,7 +7,9 @@ const FrontEndLayout = ({ children }) => {
   return (
     <div>
       <Header />
-      <Container>{children}</Container>
+      <div className="layout-main">
+        <Container>{children}</Container>
+      </div>
       <Footer />
     </div>
   );

@@ -42,13 +42,15 @@ const Header = () => {
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav className="me-auto my-2 my-lg-1" style={{ maxHeight: '100px' }}>
-          {parentCategories.map((item, i) => {
-            return (
-              <Link to={`/category/${item.slug}`} className="nav-link">
-                {item.name}
-              </Link>
-            );
-          })}
+          {parentCategories.length
+            ? parentCategories.map((item, i) => {
+                return (
+                  <Link to={`/category/${item.slug}`} className="nav-link">
+                    {item.name}
+                  </Link>
+                );
+              })
+            : ''}
 
           {/* <Link to="/products" className="nav-link">
             Products
@@ -58,7 +60,7 @@ const Header = () => {
           <Nav className="ms-auto">
             <a href="" className="nav-link">
               Cart
-              <i className="fas fa-cart-plus p-2"></i>0
+              <i className="fas fa-cart-plus p-2"></i>
             </a>
             <a href="/admin-profile" className="nav-link">
               Login

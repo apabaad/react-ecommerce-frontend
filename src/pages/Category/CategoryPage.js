@@ -38,10 +38,10 @@ const CategoryPage = ({ props }) => {
 
   return (
     <FrontEndLayout>
-      <div className="d-flex row-wrap">
+      <div className="categoryPage d-flex row-wrap">
         {filteredProduct.map((item, i) => {
           return (
-            <div className=" m-2">
+            <div className="m-2">
               <Link to={`/products/${item.slug}`}>
                 <Card style={{ width: '18rem' }}>
                   <Card.Img variant="top" src={item.images[0]} />
