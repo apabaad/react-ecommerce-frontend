@@ -27,3 +27,8 @@ a {
 #searchbar {
   width: 300px;
 }
+
+.productMainImage {
+  width: 650px;
+  height: 600px;
+}

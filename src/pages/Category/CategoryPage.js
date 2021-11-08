@@ -3,7 +3,7 @@ import dellxps from '../../assets/images/category/dellxps.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Button, Container } from 'react-bootstrap';
 import queryString from 'query-string';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { getCategoriesAction } from './CategoryAction';
 import FrontEndLayout from '../layout/frontEndLayout';
 import { getProductAction } from '../Product/ProductAction';
@@ -24,12 +24,9 @@ const CategoryPage = ({ props }) => {
   const categoryClicked = catList.filter((item) => item.slug === slug); //getting the category coming from the slug
   const _id = categoryClicked[0]?._id; //getting array containing id of category
 
-  console.log(_id);
   const filteredProduct = productList.filter((item) =>
     item.categories.includes(_id)
   );
-
-  console.log(filteredProduct, 'frome here');
 
   useEffect(() => {
     dispatch(getProductAction());
@@ -45,14 +42,14 @@ const CategoryPage = ({ props }) => {
         {filteredProduct.map((item, i) => {
           return (
             <div className=" m-2">
-              <a href="">
+              <Link to={`/products/${item.slug}`}>
                 <Card style={{ width: '18rem' }}>
                   <Card.Img variant="top" src={item.images[0]} />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                   </Card.Body>
                 </Card>
-              </a>
+              </Link>
             </div>
           );
         })}
