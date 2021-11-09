@@ -12,6 +12,7 @@ const ProductPage = () => {
   const { productList } = useSelector((state) => state.product);
   const { cartItems } = useSelector((state) => state.cart);
   const [productQuantity, setProductQuantity] = useState(0);
+  const [mainImage, setMainImage] = useState(0);
 
   const selectedProduct = productList.filter((item) => item.slug == slug)[0];
 
@@ -20,16 +21,6 @@ const ProductPage = () => {
   };
 
   const handleOnAddCartClick = (e) => {
-    // use filter to check if the product already exists, if so replace that specific product or update the qty
-    // if not exist then add on the list
-
-    // const checkIfExists = cartItems.filter((item) =>
-    //   item._id.includes(selectedProduct._id)
-    // );
-
-    // if (checkIfExists.length) {
-    //   checkIfExists[0].cartQty = +productQuantity;
-    // } else {
     const productPropertiesForCart = {
       _id: selectedProduct._id,
       title: selectedProduct.title,
@@ -38,13 +29,18 @@ const ProductPage = () => {
       cartQty: +productQuantity,
     };
 
-    // const data = { ...cartItems };
+    // use filter to check if the product already exists, if so replace that specific product or update the qty
+    // if not exist then add on the list
+
     const filteredArg = cartItems.filter(
       (item) => item._id !== selectedProduct._id
-    ); // console.log(data);
+    );
 
     const newCart = [...filteredArg, productPropertiesForCart];
     dispatch(updateCart(newCart));
+  };
+  const changeProductImage = (i) => {
+    setMainImage(i);
   };
 
   return (
@@ -57,17 +53,21 @@ const ProductPage = () => {
           <div className="productRow">
             <div className="imageSection">
               <img
-                src={selectedProduct.images[0]}
+                src={selectedProduct.images[mainImage]}
                 alt={selectedProduct.title}
                 className="productMainImage"
               />
 
               <div className="productThumbnail">
-                {selectedProduct.images.map((item) => {
+                {selectedProduct.images.map((item, i) => {
                   return (
                     <ul>
                       <li>
-                        <img src={item} alt={selectedProduct.title} />
+                        <img
+                          src={item}
+                          alt={selectedProduct.title}
+                          onClick={() => changeProductImage(i)}
+                        />
                       </li>
                     </ul>
                   );
@@ -86,6 +86,7 @@ const ProductPage = () => {
                     name="qty"
                     id="setProductQuantity"
                     onChange={handleOnQtyChange}
+                    required
                   />
                 </form>
               </div>
