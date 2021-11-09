@@ -21,6 +21,10 @@ const ProductPage = () => {
   };
 
   const handleOnAddCartClick = (e) => {
+    if (productQuantity < 1) {
+      return alert('Quantity must be greater than 0.');
+    }
+
     const productPropertiesForCart = {
       _id: selectedProduct._id,
       title: selectedProduct.title,

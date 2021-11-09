@@ -21,7 +21,6 @@ const Header = (productQuantity) => {
   const totalCartItems = cartItems.reduce((accumulator, item) => {
     return accumulator + item.cartQty;
   }, 0);
-  console.log(totalCartItems, 'qty cart');
 
   useEffect(() => {
     dispatch(getCategoriesAction());
