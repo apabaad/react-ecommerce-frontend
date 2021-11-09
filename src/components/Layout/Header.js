@@ -12,10 +12,16 @@ import {
 import { Link } from 'react-router-dom';
 import { getCategoriesAction } from '../../pages/Category/CategoryAction';
 
-const Header = () => {
+const Header = (productQuantity) => {
   const dispatch = useDispatch();
 
-  const { isPending, catList } = useSelector((state) => state.category);
+  const { catList } = useSelector((state) => state.category);
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const totalCartItems = cartItems.reduce((accumulator, item) => {
+    return accumulator + item.cartQty;
+  }, 0);
+  console.log(totalCartItems, 'qty cart');
 
   useEffect(() => {
     dispatch(getCategoriesAction());
@@ -61,7 +67,9 @@ const Header = () => {
             <a href="" className="nav-link">
               Cart
               <i className="fas fa-cart-plus p-2"></i>
+              {totalCartItems}
             </a>
+
             <a href="/admin-profile" className="nav-link">
               Login
               <i className="fas fa-sign-in-alt p-2"></i>

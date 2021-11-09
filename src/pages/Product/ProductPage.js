@@ -1,19 +1,51 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import FrontEndLayout from '../layout/frontEndLayout';
+import { changeCartAction } from '../../components/Cart/CartAction';
+import { updateCart } from '../../components/Cart/CartSlice';
 
-const ProductPage = ({ changeCartValue }) => {
+const ProductPage = () => {
   const { slug } = useParams();
+  const dispatch = useDispatch();
   const { productList } = useSelector((state) => state.product);
+  const { cartItems } = useSelector((state) => state.cart);
   const [productQuantity, setProductQuantity] = useState(0);
+
+  const selectedProduct = productList.filter((item) => item.slug == slug)[0];
 
   const handleOnQtyChange = (e) => {
     setProductQuantity(e.target.value);
   };
 
-  const selectedProduct = productList.filter((item) => item.slug == slug)[0];
+  const handleOnAddCartClick = (e) => {
+    // use filter to check if the product already exists, if so replace that specific product or update the qty
+    // if not exist then add on the list
+
+    // const checkIfExists = cartItems.filter((item) =>
+    //   item._id.includes(selectedProduct._id)
+    // );
+
+    // if (checkIfExists.length) {
+    //   checkIfExists[0].cartQty = +productQuantity;
+    // } else {
+    const productPropertiesForCart = {
+      _id: selectedProduct._id,
+      title: selectedProduct.title,
+      price: selectedProduct.price,
+      image: selectedProduct.images[0],
+      cartQty: +productQuantity,
+    };
+
+    // const data = { ...cartItems };
+    const filteredArg = cartItems.filter(
+      (item) => item._id !== selectedProduct._id
+    ); // console.log(data);
+
+    const newCart = [...filteredArg, productPropertiesForCart];
+    dispatch(updateCart(newCart));
+  };
 
   return (
     <FrontEndLayout>
@@ -54,22 +86,20 @@ const ProductPage = ({ changeCartValue }) => {
                     name="qty"
                     id="setProductQuantity"
                     onChange={handleOnQtyChange}
-                    className="ml-9"
                   />
                 </form>
               </div>
 
-              {productQuantity}
               <div className="product-buttons mt-2">
                 <button
                   className="addToCartButton"
-                  onClick={() => changeCartValue()}
+                  onClick={handleOnAddCartClick}
                 >
                   Add To Cart
                 </button>
                 <button
                   className="buyNowButton"
-                  onClick={() => changeCartValue()}
+                  // onClick={() => changeCartValue()}
                 >
                   Buy Now
                 </button>
