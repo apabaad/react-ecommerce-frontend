@@ -43,6 +43,7 @@ const ProductPage = () => {
     const newCart = [...filteredArg, productPropertiesForCart];
     dispatch(updateCart(newCart));
   };
+
   const changeProductImage = (i) => {
     setMainImage(i);
   };

@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-import dellxps from '../../assets/images/category/dellxps.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Button, Container } from 'react-bootstrap';
-import queryString from 'query-string';
+// import queryString from 'query-string';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { getCategoriesAction } from './CategoryAction';
 import FrontEndLayout from '../layout/frontEndLayout';
 import { getProductAction } from '../Product/ProductAction';
 
-const CategoryPage = ({ props }) => {
+const CategoryPage = () => {
   const dispatch = useDispatch();
   const { isPending, catList } = useSelector((state) => state.category);
   const { productList } = useSelector((state) => state.product);

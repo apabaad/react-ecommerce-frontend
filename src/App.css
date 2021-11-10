@@ -60,6 +60,7 @@ a {
   width: 75px;
   height: 60px;
   border: orchid solid;
+  cursor: pointer;
 }
 .productPrice h3 {
   color: #008a00;
@@ -123,4 +124,30 @@ a {
 .selectQuantity {
   display: flex;
   flex-direction: row;
+}
+
+.cartTable {
+  width: 800px;
+}
+.cartTable td {
+  text-align: center;
+  vertical-align: middle;
+}
+#cartTableThumbnail {
+  text-align: left;
+  width: 60px;
+}
+
+.cartTablePlusButton {
+  background: white;
+  height: 30px;
+  width: 30px;
+  border: 1px #0065e4 solid;
+  cursor: pointer;
+}
+
+.cartTableQty {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

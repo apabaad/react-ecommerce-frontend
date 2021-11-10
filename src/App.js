@@ -8,6 +8,7 @@ import ProductPage from './pages/Product/ProductPage';
 import CategoryPage from './pages/Category/CategoryPage';
 import HomePage from './pages/HomePage/HomePage';
 import Header from './components/Layout/Header';
+import CartPage from './pages/Cart/CartPage';
 
 function App() {
   return (
@@ -25,8 +26,8 @@ function App() {
           <Route path="/products/:slug">
             <ProductPage />
           </Route>
-          <Route path="/cart">
-            <CategoryPage />
+          <Route path="/cart" exact>
+            <CartPage />
           </Route>
         </Switch>
       </Router>

@@ -31,7 +31,7 @@ const Header = (productQuantity) => {
 
   return (
     <Navbar expand="lg">
-      <Navbar.Brand href="#">Market Mania</Navbar.Brand>
+      <Navbar.Brand href="/">Market Mania</Navbar.Brand>
       <Form className="d-flex">
         <FormControl
           type="search"
@@ -63,11 +63,11 @@ const Header = (productQuantity) => {
         </Nav>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <a href="" className="nav-link">
+            <Link to="/cart" className="nav-link">
               Cart
               <i className="fas fa-cart-plus p-2"></i>
               {totalCartItems}
-            </a>
+            </Link>
 
             <a href="/admin-profile" className="nav-link">
               Login
