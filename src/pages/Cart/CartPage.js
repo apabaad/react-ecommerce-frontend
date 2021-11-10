@@ -13,6 +13,50 @@ const CartPage = () => {
     return accumulator + cartItems.cartQty;
   }, 0);
 
+  const handleOnAddQtyButton = (_id) => {
+    const selectedItem = cartItems.filter((item, i) => item._id === _id)[0];
+
+    console.log(selectedItem);
+
+    const productPropertiesForCart = {
+      _id: selectedItem._id,
+      title: selectedItem.title,
+      price: selectedItem.price,
+      image: selectedItem.image,
+      cartQty: selectedItem.cartQty + 1,
+    };
+
+    const filteredArg = cartItems.filter(
+      (item) => item._id !== selectedItem._id
+    );
+
+    const newCart = [...filteredArg, productPropertiesForCart];
+
+    dispatch(updateCart(newCart));
+  };
+
+  const handleOnSubtractQtyButton = (_id) => {
+    const selectedItem = cartItems.filter((item, i) => item._id === _id)[0];
+
+    console.log(selectedItem);
+
+    const productPropertiesForCart = {
+      _id: selectedItem._id,
+      title: selectedItem.title,
+      price: selectedItem.price,
+      image: selectedItem.image,
+      cartQty: selectedItem.cartQty - 1,
+    };
+
+    const filteredArg = cartItems.filter(
+      (item) => item._id !== selectedItem._id
+    );
+
+    const newCart = [...filteredArg, productPropertiesForCart];
+
+    dispatch(updateCart(newCart));
+  };
+
   return (
     <div>
       <FrontEndLayout>
@@ -38,11 +82,17 @@ const CartPage = () => {
                   <td>{item.title}</td>
                   <td>
                     <div className="cartTableQty">
-                      <div className="cartTablePlusButton m-3">
+                      <div
+                        className="cartTablePlusButton m-3"
+                        onClick={() => handleOnSubtractQtyButton(item._id)}
+                      >
                         <i class="fas fa-minus m-2"></i>
                       </div>{' '}
                       {item.cartQty}
-                      <div className="cartTablePlusButton m-3">
+                      <div
+                        className="cartTablePlusButton m-3"
+                        onClick={() => handleOnAddQtyButton(item._id)}
+                      >
                         <i class="fas fa-plus m-2"></i>
                       </div>
                     </div>
