@@ -127,11 +127,15 @@ a {
 }
 
 .cartTable {
-  width: 800px;
+  width: 900px;
 }
 .cartTable td {
   text-align: center;
   vertical-align: middle;
+}
+
+.cartTable h5 {
+  text-align: end;
 }
 #cartTableThumbnail {
   text-align: left;
@@ -150,4 +154,42 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.cartPageMain {
+  display: flex;
+}
+
+.goToCheckOutDiv {
+  width: 350px;
+  height: 350px;
+  /* background-color: rgb(241, 232, 232); */
+  margin-left: 50px;
+  border-radius: 5px;
+  border: 2px #0365e4 solid;
+}
+
+.goToCheckOutDivBody {
+  min-height: 297px;
+}
+
+#onItemRemove {
+  cursor: pointer;
+  color: blue;
+}
+
+.proceedCheckOutDiv {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.proceedToCheckOutButton {
+  padding: 10px;
+  background-color: #0365e4;
+  color: whitesmoke;
+  border-radius: 20px;
+  height: 50px;
+  font-size: larger;
+  font-weight: bold;
 }

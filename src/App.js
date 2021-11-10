@@ -7,27 +7,29 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import ProductPage from './pages/Product/ProductPage';
 import CategoryPage from './pages/Category/CategoryPage';
 import HomePage from './pages/HomePage/HomePage';
-import Header from './components/Layout/Header';
+
 import CartPage from './pages/Cart/CartPage';
+import CheckoutPage from './pages/Checkout/CheckoutPage';
 
 function App() {
   return (
     <div>
-      {/* <Header productQuantity={productQuantity} /> */}
       <Router>
         <Switch>
           <Route path="/" exact>
             <HomePage />
           </Route>
-          {/* <Header productQuantity={productQuantity} /> */}
           <Route path="/category/:slug">
             <CategoryPage />
           </Route>
           <Route path="/products/:slug">
             <ProductPage />
           </Route>
-          <Route path="/cart" exact>
+          <Route path="/cart">
             <CartPage />
+          </Route>
+          <Route path="/checkout">
+            <CheckoutPage />
           </Route>
         </Switch>
       </Router>
