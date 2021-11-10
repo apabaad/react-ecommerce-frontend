@@ -48,6 +48,12 @@ const CartPage = () => {
     const cartItem = cartItems.filter((item) => item._id !== _id);
     dispatch(updateCart(cartItem));
   };
+
+  const handleOnProceedButton = () => {
+    if (cartItems.length == 0) {
+      return alert('Your cart is empty.');
+    }
+  };
   return (
     <div>
       <FrontEndLayout>
@@ -109,11 +115,12 @@ const CartPage = () => {
             <h5>Total: ${totalValue}</h5>
 
             <div className="proceedCheckOutDiv">
-              <Link to="/checkout">
-                <button className="proceedToCheckOutButton">
-                  Proceed To Checkout
-                </button>
-              </Link>
+              <button
+                className="proceedToCheckOutButton"
+                onClick={handleOnProceedButton}
+              >
+                Proceed To Checkout
+              </button>
             </div>
           </div>
           {/* <div className="goToCheckOutDiv">
