@@ -10,7 +10,7 @@ import HomePage from './pages/HomePage/HomePage';
 
 import CartPage from './pages/Cart/CartPage';
 import CheckoutPage from './pages/Checkout/CheckoutPage';
-import SignUpPage from './pages/SignUp/SignUpPage';
+import { RegistrationPage } from './pages/User/RegistrationPage';
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
             <CheckoutPage />
           </Route>
           <Route path="/signup">
-            <SignUpPage />
+            <RegistrationPage />
           </Route>
         </Switch>
       </Router>

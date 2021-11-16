@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Col, Row, InputGroup, Card } from 'react-bootstrap';
-import FrontEndLayout from '../layout/frontEndLayout';
+import { useDispatch } from 'react-redux';
 
-const SignUpPage = () => {
-  const handleOnChange = () => {};
+import FrontEndLayout from '../layout/frontEndLayout';
+import { createUserAction } from './UserAction';
+
+export const RegistrationPage = () => {
+  const dispatch = useDispatch();
+  const initialState = {
+    fname: '',
+    lname: '',
+    dob: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phone: '',
+    address: '',
+    gender: '',
+  };
+  const [newUser, setNewUser] = useState(initialState);
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setNewUser({
+      ...newUser,
+      [name]: value,
+    });
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    const { confirmPassword, ...userInfo } = newUser;
+
+    dispatch(createUserAction(userInfo));
+  };
+
   return (
     <FrontEndLayout>
       <div className="signup-form">
@@ -11,8 +42,7 @@ const SignUpPage = () => {
           <h1>Customer Registration</h1>
 
           <hr />
-          {/* <Form onSubmit={handleOnSubmit}> */}
-          <Form>
+          <Form onSubmit={handleOnSubmit}>
             <Form.Group as={Row} className="mb-3 mt-3">
               <Form.Label column sm="3">
                 Email
@@ -157,5 +187,3 @@ const SignUpPage = () => {
     </FrontEndLayout>
   );
 };
-
-export default SignUpPage;
