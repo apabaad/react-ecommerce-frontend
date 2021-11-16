@@ -193,3 +193,7 @@ a {
   font-size: larger;
   font-weight: bold;
 }
+
+.signup-form {
+  width: 700px;
+}

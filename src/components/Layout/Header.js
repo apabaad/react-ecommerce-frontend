@@ -69,14 +69,14 @@ const Header = (productQuantity) => {
               {totalCartItems}
             </Link>
 
-            <a href="/admin-profile" className="nav-link">
+            <Link to="/login" className="nav-link">
               Login
               <i className="fas fa-sign-in-alt p-2"></i>
-            </a>
-            <a href="/admin-profile" className="nav-link">
+            </Link>
+            <Link to="/signup" className="nav-link">
               Sign up
               <i className="fas fa-user-plus p-2"></i>
-            </a>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar.Collapse>
