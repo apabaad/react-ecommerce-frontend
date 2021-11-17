@@ -14,3 +14,15 @@ export const createUser = async (userInfo) => {
     };
   }
 };
+
+export const userLoginAPI = async (userInfo) => {
+  try {
+    const { data } = await axios.post(`${userAPI}/login`, userInfo);
+    return data;
+  } catch (error) {
+    return {
+      status: 'error',
+      message: error.message,
+    };
+  }
+};

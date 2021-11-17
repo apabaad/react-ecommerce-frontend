@@ -31,10 +31,6 @@ const CategoryPage = () => {
     dispatch(getProductAction());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getCategoriesAction());
-  }, [dispatch]);
-
   return (
     <FrontEndLayout>
       <div className="categoryPage d-flex row-wrap">

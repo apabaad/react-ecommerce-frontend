@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
+
+import { userLogin } from '../../pages/User/UserAction';
+
 const UserLoginForm = () => {
-  const handleOnSubmit = () => {};
-  const handleOnChange = () => {};
+  const [formData, setFormData] = useState({});
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    console.log(formData);
+  };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.email || !formData.password) {
+      return alert('please input both email and password.');
+    }
+    dispatch(userLogin(formData));
+    history.push('/homepage');
+  };
+
   return (
     <div className="login-page">
       <Card className="p-5 mt-4 login-card">
@@ -40,8 +61,8 @@ const UserLoginForm = () => {
             </Col>
           </Form.Group>
           <div className="d-grid gap-2">
-            <Button type="submit" variant="primary">
-              Registration
+            <Button type="submit" variant="secondary">
+              Login
             </Button>
           </div>
         </Form>

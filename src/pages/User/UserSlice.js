@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   resPending: true,
+  isLoggedIn: false,
   userData: {},
+  user: {},
 };
 
 const userSlice = createSlice({
@@ -17,9 +19,13 @@ const userSlice = createSlice({
       state.resPending = false;
       state.userData = payload;
     },
+    loginSuccess: (state, { payload }) => {
+      state.isLoggedIn = true;
+      state.user = payload;
+    },
   },
 });
 
 const { reducer, actions } = userSlice;
-export const { registrationSuccess, registrationFail } = actions;
+export const { registrationSuccess, registrationFail, loginSuccess } = actions;
 export default reducer;

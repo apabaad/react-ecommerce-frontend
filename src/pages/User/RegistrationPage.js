@@ -39,7 +39,7 @@ export const RegistrationPage = () => {
     <FrontEndLayout>
       <div className="signup-form">
         <Card className="p-5 m-4">
-          <h1>Customer Registration</h1>
+          <h1>User Registration</h1>
 
           <hr />
           <Form onSubmit={handleOnSubmit}>

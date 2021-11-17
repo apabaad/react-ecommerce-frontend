@@ -21,6 +21,9 @@ function App() {
           <Route path="/" exact>
             <HomePage />
           </Route>
+          <Route path="/homepage" exact>
+            <HomePage />
+          </Route>
           <Route path="/category/:slug">
             <CategoryPage />
           </Route>
