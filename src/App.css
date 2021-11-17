@@ -197,3 +197,12 @@ a {
 .signup-form {
   width: 700px;
 }
+
+.login-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-card {
+  width: 500px;
+}

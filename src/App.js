@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage/HomePage';
 import CartPage from './pages/Cart/CartPage';
 import CheckoutPage from './pages/Checkout/CheckoutPage';
 import { RegistrationPage } from './pages/User/RegistrationPage';
+import LoginPage from './pages/User/LoginPage';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <RegistrationPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
         </Switch>
       </Router>
