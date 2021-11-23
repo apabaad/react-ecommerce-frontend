@@ -11,6 +11,7 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getCategoriesAction } from '../../pages/Category/CategoryAction';
+import { userLogOut } from '../../pages/User/UserAction';
 
 const Header = (productQuantity) => {
   const dispatch = useDispatch();
@@ -71,14 +72,21 @@ const Header = (productQuantity) => {
             </Link>
 
             <Link to="/login" className="nav-link">
-              {isLoggedIn ? user.fname : 'Login'}
-
-              <i className="fas fa-sign-in-alt p-2"></i>
-            </Link>
-            <Link to="/signup" className="nav-link">
-              Sign up
+              {isLoggedIn ? user.fname : 'Login  '}
               <i className="fas fa-user-plus p-2"></i>
+              {/* <i className="fas fa-sign-in-alt"></i> */}
             </Link>
+            {isLoggedIn ? (
+              <Nav.Link href="#" onClick={() => dispatch(userLogOut())}>
+                Logout
+                <i className="fas fa-user-plus p-2"></i>
+              </Nav.Link>
+            ) : (
+              <Link to="/signup" className="nav-link">
+                Sign up
+                <i className="fas fa-user-plus p-2"></i>
+              </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar.Collapse>

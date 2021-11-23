@@ -1,5 +1,10 @@
 import { createUser, userLoginAPI } from '../../apis/userAPI';
-import { registrationSuccess, loginSuccess, resFail } from './UserSlice';
+import {
+  registrationSuccess,
+  loginSuccess,
+  resFail,
+  logoutSuccess,
+} from './UserSlice';
 
 export const createUserAction = (userData) => async (dispatch) => {
   const result = await createUser(userData);
@@ -15,4 +20,8 @@ export const userLogin = (userInfo) => async (dispatch) => {
     return dispatch(loginSuccess(result.result));
   }
   dispatch(resFail(result));
+};
+
+export const userLogOut = () => async (dispatch) => {
+  dispatch(logoutSuccess());
 };
