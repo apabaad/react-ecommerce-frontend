@@ -125,7 +125,7 @@ export const RegistrationPage = () => {
               <Col sm="9">
                 <Form.Control
                   type="date"
-                  name="date"
+                  name="dob"
                   placeholder="dd/mm/yyyy"
                   onChange={handleOnChange}
                 />

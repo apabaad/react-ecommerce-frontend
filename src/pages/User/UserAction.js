@@ -1,16 +1,12 @@
 import { createUser, userLoginAPI } from '../../apis/userAPI';
-import {
-  registrationSuccess,
-  registrationFail,
-  loginSuccess,
-} from './UserSlice';
+import { registrationSuccess, loginSuccess, resFail } from './UserSlice';
 
 export const createUserAction = (userData) => async (dispatch) => {
   const result = await createUser(userData);
 
   result.status === 'success'
     ? dispatch(registrationSuccess(result))
-    : dispatch(registrationFail(result));
+    : dispatch(resFail(result));
 };
 
 export const userLogin = (userInfo) => async (dispatch) => {
@@ -18,4 +14,5 @@ export const userLogin = (userInfo) => async (dispatch) => {
   if (result.status === 'success') {
     return dispatch(loginSuccess(result.result));
   }
+  dispatch(resFail(result));
 };

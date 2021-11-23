@@ -15,7 +15,7 @@ const userSlice = createSlice({
       state.resPending = false;
       state.userData = payload;
     },
-    registrationFail: (state, { payload }) => {
+    resFail: (state, { payload }) => {
       state.resPending = false;
       state.userData = payload;
     },
@@ -27,5 +27,5 @@ const userSlice = createSlice({
 });
 
 const { reducer, actions } = userSlice;
-export const { registrationSuccess, registrationFail, loginSuccess } = actions;
+export const { registrationSuccess, resFail, loginSuccess } = actions;
 export default reducer;
