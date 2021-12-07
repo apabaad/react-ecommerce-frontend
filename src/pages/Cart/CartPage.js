@@ -5,6 +5,7 @@ import { Table } from 'react-bootstrap';
 import { changeCartQtyAction } from './CartAction';
 import { updateCart } from './CartSlice';
 import { Link } from 'react-router-dom';
+import checkout from '../Checkout/CheckoutPage';
 
 const CartPage = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -115,12 +116,14 @@ const CartPage = () => {
             <h5>Total: ${totalValue}</h5>
 
             <div className="proceedCheckOutDiv">
-              <button
-                className="proceedToCheckOutButton"
-                onClick={handleOnProceedButton}
-              >
-                Proceed To Checkout
-              </button>
+              <Link to="/checkout">
+                <button
+                  className="proceedToCheckOutButton"
+                  onClick={handleOnProceedButton}
+                >
+                  Proceed To Checkout
+                </button>
+              </Link>
             </div>
           </div>
           {/* <div className="goToCheckOutDiv">

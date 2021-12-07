@@ -12,6 +12,7 @@ import CartPage from './pages/Cart/CartPage';
 import CheckoutPage from './pages/Checkout/CheckoutPage';
 import { RegistrationPage } from './pages/User/RegistrationPage';
 import LoginPage from './pages/User/LoginPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -33,9 +34,9 @@ function App() {
           <Route path="/cart">
             <CartPage />
           </Route>
-          <Route path="/checkout">
+          <PrivateRoute path="/checkout">
             <CheckoutPage />
-          </Route>
+          </PrivateRoute>
           <Route path="/signup">
             <RegistrationPage />
           </Route>

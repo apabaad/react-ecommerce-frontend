@@ -52,6 +52,7 @@ const UserLoginForm = () => {
               <Form.Control
                 type="email"
                 name="email"
+                // value="abc@a.com"
                 placeholder="Email"
                 required
                 onChange={handleOnChange}
@@ -68,6 +69,7 @@ const UserLoginForm = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
+                // value="111111"
                 required
                 onChange={handleOnChange}
               />
