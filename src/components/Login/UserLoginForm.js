@@ -3,7 +3,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button, Card, Row, Col, Alert } from 'react-bootstrap';
 
-import { userLogin } from '../../pages/User/UserAction';
+import { autoLoginAction, userLogin } from '../../pages/User/UserAction';
 
 const UserLoginForm = () => {
   const [formData, setFormData] = useState({});
@@ -21,6 +21,7 @@ const UserLoginForm = () => {
   const from = location?.state?.from?.pathname || 'homepage';
 
   useEffect(() => {
+    !isLoggedIn && dispatch(autoLoginAction());
     isLoggedIn && history.replace(from);
   }, [isLoggedIn, history, from]);
 
