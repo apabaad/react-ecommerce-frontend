@@ -1,5 +1,5 @@
 import { getNewAccessJWT } from '../../apis/tokenAPI';
-import { createUser, userLoginAPI } from '../../apis/userAPI';
+import { createUser, getUserAPI, userLoginAPI } from '../../apis/userAPI';
 import {
   registrationSuccess,
   loginSuccess,
@@ -40,9 +40,12 @@ export const autoLoginAction = () => async (dispatch) => {
     return dispatch(autoLoginSuccess());
   }
   if (!accessJWT && refreshJWT) {
-    const data = await getNewAccessJWT();
-    if (data) {
-      console.log('gone hgere');
+    const token = await getNewAccessJWT();
+    if (token) {
+      const user = await getUserAPI();
+      const userData = user.user;
+
+      dispatch(loginSuccess(userData));
       return dispatch(autoLoginSuccess());
     }
   }
