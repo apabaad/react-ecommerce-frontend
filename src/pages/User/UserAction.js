@@ -32,17 +32,21 @@ export const userLogin = (userInfo) => async (dispatch) => {
 export const autoLoginAction = () => async (dispatch) => {
   const accessJWT = window.sessionStorage.getItem('accessJWT');
   const refreshJWT = window.localStorage.getItem('refreshJWT');
+  console.log(accessJWT, 'access');
+  console.log(refreshJWT, 'refresh');
 
   // auto login if there are both refresh and access JWTs
   if (accessJWT && refreshJWT) {
     return dispatch(autoLoginSuccess());
   }
   if (!accessJWT && refreshJWT) {
-    const data = await getNewAccessJWT(refreshJWT);
+    const data = await getNewAccessJWT();
     if (data) {
+      console.log('gone hgere');
       return dispatch(autoLoginSuccess());
     }
   }
+  dispatch(logoutSuccess());
 };
 
 export const userLogOut = () => async (dispatch) => {

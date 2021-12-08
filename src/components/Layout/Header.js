@@ -18,7 +18,7 @@ const Header = (productQuantity) => {
 
   const { catList } = useSelector((state) => state.category);
   const { cartItems } = useSelector((state) => state.cart);
-  const { user, isLoggedIn } = useSelector((state) => state.user);
+  const { userData, isLoggedIn } = useSelector((state) => state.user);
 
   const totalCartItems = cartItems.reduce((accumulator, item) => {
     return accumulator + item.cartQty;
@@ -72,7 +72,7 @@ const Header = (productQuantity) => {
             </Link>
 
             <Link to="/login" className="nav-link">
-              {isLoggedIn ? user.fname : 'Login  '}
+              {isLoggedIn ? userData.fname : 'Login  '}
               <i className="fas fa-user-plus p-2"></i>
               {/* <i className="fas fa-sign-in-alt"></i> */}
             </Link>

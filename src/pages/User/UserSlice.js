@@ -4,7 +4,6 @@ const initialState = {
   resPending: true,
   isLoggedIn: false,
   userData: {},
-  user: {},
 };
 
 const userSlice = createSlice({
@@ -21,11 +20,11 @@ const userSlice = createSlice({
     },
     loginSuccess: (state, { payload }) => {
       state.isLoggedIn = true;
-      state.user = payload;
+      state.userData = payload;
     },
     logoutSuccess: (state) => {
       state.isLoggedIn = false;
-      state.user = {};
+      state.userData = {};
     },
     autoLoginSuccess: (state) => {
       state.isLoggedIn = true;

@@ -3,7 +3,7 @@ import axios from 'axios';
 const rootURL = 'http://localhost:8000';
 const tokenAPI = rootURL + '/api/v1/token';
 
-export const getNewAccessJWT = async (refreshJWT) => {
+export const getNewAccessJWT = async () => {
   try {
     // remove old token
     window.sessionStorage.removeItem('accessJWT');

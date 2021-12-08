@@ -26,3 +26,19 @@ export const userLoginAPI = async (userInfo) => {
     };
   }
 };
+
+export const getUserAPI = async () => {
+  try {
+    const { data } = await axios.get(`${userAPI}/getuser`, {
+      headers: {
+        Authorization: window.sessionStorage.getItem('accessJWT'),
+      },
+    });
+    return data;
+  } catch (error) {
+    return {
+      status: 'error',
+      message: error.message,
+    };
+  }
+};

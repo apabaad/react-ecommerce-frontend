@@ -23,7 +23,7 @@ const UserLoginForm = () => {
   useEffect(() => {
     !isLoggedIn && dispatch(autoLoginAction());
     isLoggedIn && history.replace(from);
-  }, [isLoggedIn, history, from]);
+  }, [isLoggedIn, history, from, dispatch]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
