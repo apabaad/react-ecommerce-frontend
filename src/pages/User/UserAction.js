@@ -37,6 +37,10 @@ export const autoLoginAction = () => async (dispatch) => {
 
   // auto login if there are both refresh and access JWTs
   if (accessJWT && refreshJWT) {
+    const user = await getUserAPI();
+    const userData = user.user;
+
+    dispatch(loginSuccess(userData));
     return dispatch(autoLoginSuccess());
   }
   if (!accessJWT && refreshJWT) {
