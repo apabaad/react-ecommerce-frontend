@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import FrontEndLayout from '../layout/frontEndLayout';
 import { changeCartAction } from '../../components/Cart/CartAction';
@@ -103,12 +104,9 @@ const ProductPage = () => {
                 >
                   Add To Cart
                 </button>
-                <button
-                  className="buyNowButton"
-                  // onClick={() => changeCartValue()}
-                >
-                  Buy Now
-                </button>
+                <Link to="/cart">
+                  <button className="buyNowButton">Buy Now</button>
+                </Link>
               </div>
             </div>
           </div>

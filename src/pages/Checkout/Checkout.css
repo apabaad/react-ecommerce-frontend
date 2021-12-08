@@ -1,0 +1,16 @@
+.checkout-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.delivery,
+.payment {
+  background: ;
+  width: 900px;
+  height: 600px;
+  border: 2px rgb(12, 230, 84) solid;
+}
+
+.checkout_title {
+  background: cornflowerblue;
+}
