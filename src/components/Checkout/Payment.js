@@ -1,15 +1,31 @@
 import React from 'react';
+import { Form } from 'react-bootstrap';
 
 const Payment = () => {
   return (
-    <div className="delivery">
+    <div className="payment">
       <div className="checkout-title">
         <h4 className="p-2">
-          Payment Method <i class="fas fa-money-check-alt"></i>{' '}
-          <i class="fas fa-home"></i>
+          <i class="fas fa-money-check-alt"></i> Payment Method
         </h4>
       </div>
-      form here
+      <Form className="ml-3">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control size="lg" type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+      </Form>
     </div>
   );
 };

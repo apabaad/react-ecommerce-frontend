@@ -1,16 +1,41 @@
 .checkout-page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  min-height: 100%;
+  /* align-items: center; */
 }
 .delivery,
 .payment {
-  background: ;
-  width: 900px;
-  height: 600px;
   border: 2px rgb(12, 230, 84) solid;
 }
 
-.checkout_title {
+.checkout-title,
+.shopping-title {
   background: cornflowerblue;
+  color: black;
+}
+
+.left-side {
+  flex: 5;
+}
+.right-side {
+  flex: 2;
+}
+
+/* shopping details */
+
+.shopping {
+  margin-left: 50px;
+  width: 100%;
+  height: 400px;
+  background: #0ce653;
+}
+.shopping-details-card {
+  background: #0ce653;
+}
+
+.email-confirmation {
+  display: flex;
+  gap: 3px;
 }

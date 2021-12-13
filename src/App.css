@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 .navbar {
   background-color: #0065e4;
 }
@@ -108,7 +111,7 @@ a {
 }
 
 .layout-main {
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
 #setProductQuantity {

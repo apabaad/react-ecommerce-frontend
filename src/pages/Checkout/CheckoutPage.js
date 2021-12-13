@@ -1,5 +1,6 @@
 import React from 'react';
 import Delivery from '../../components/Checkout/Delivery';
+import Email from '../../components/Checkout/Email';
 import Payment from '../../components/Checkout/Payment';
 import ShoppingDetails from '../../components/Checkout/ShoppingDetails';
 import FrontEndLayout from '../layout/frontEndLayout';
@@ -10,8 +11,10 @@ const CheckoutPage = () => {
     <div>
       <FrontEndLayout>
         <h2 className="mt-3">Checkout</h2>
+        <hr />
         <div className="checkout-page">
           <div className="left-side">
+            <Email />
             <Delivery />
             <Payment />
           </div>
