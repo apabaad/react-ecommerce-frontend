@@ -51,6 +51,7 @@
 }
 .shopping-details-card {
   background: #0ce653;
+  margin-left: 1rem;
 }
 
 .email-confirmation {
@@ -58,6 +59,9 @@
   gap: 3px;
 }
 
+.cart-item-qty {
+  min-height: 32vh;
+}
 .order-submit-button {
   width: 100%;
   margin-top: 3px;
