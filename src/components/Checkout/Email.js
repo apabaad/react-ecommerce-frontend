@@ -9,8 +9,13 @@ const Email = () => {
           <h4>Email </h4> <span>to send your order confirmation</span>
         </div>
       </Form.Label>
-      <InputGroup className="mb-3">
-        <FormControl id="basic-url" aria-describedby="basic-addon3" />
+      <InputGroup className="w-50 mb-3">
+        <FormControl
+          type="email"
+          id="basic-url"
+          aria-describedby="basic-addon3"
+          placeholder="abc@zyx.com"
+        />
       </InputGroup>
     </div>
   );

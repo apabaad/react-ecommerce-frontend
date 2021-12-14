@@ -3,6 +3,7 @@ import Delivery from '../../components/Checkout/Delivery';
 import Email from '../../components/Checkout/Email';
 import Payment from '../../components/Checkout/Payment';
 import ShoppingDetails from '../../components/Checkout/ShoppingDetails';
+import SubmitButton from '../../components/Checkout/SubmitButton';
 import FrontEndLayout from '../layout/frontEndLayout';
 import './Checkout.css';
 
@@ -20,6 +21,7 @@ const CheckoutPage = () => {
           </div>
           <div className="right-side">
             <ShoppingDetails />
+            <SubmitButton />
           </div>
         </div>
       </FrontEndLayout>
